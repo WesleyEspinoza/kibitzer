@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from django.views import generic
-from kibi.models import Post
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
-
-class RegisterView(generic.CreateView):
-    form_class = 'django.auth.forms.UserCreationForm'
-
-    def get(self, request):
-        return render(request, 'registration/signup.html')
+# Create your views here.
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login/')
+    template_name = 'registration/signup.html'
