@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h3>Posts {% if posts %}<small class="text-muted">({{ posts|length }} Page{{ posts|length|pluralize:"s" }})</small>{% endif %}</h3>
+  <h3>Posts {% if posts %}<small class="text-muted">({{ posts|length }} Post{{ posts|length|pluralize:"s" }})</small>{% endif %}</h3>
   <hr>
   {% if posts %}
     <div class="card-columns">
