@@ -36,3 +36,21 @@ class Post(models.Model):
 
         # Call save on the superclass.
         return super(Post, self).save(*args, **kwargs)
+
+
+
+
+
+class Comment(models.Model):
+    """ Represents a single comment. """
+    author = models.ForeignKey(User, on_delete=models.PROTECT,
+                               help_text="The user that posted this comment.")
+    content = models.TextField(
+        help_text="Write the content of your comment here.")
+    created = models.DateTimeField(auto_now_add=True,
+                                   help_text="The date and time this comment was created. Automatically generated when the model saves.")
+    modified = models.DateTimeField(auto_now=True,
+                                    help_text="The date and time this comment was updated. Automatically generated when the model updates.")
+
+    def __str__(self):
+        return self.content

@@ -8,6 +8,10 @@
       <p>{{ post.content|linebreaksbr }}</p>
       <hr>
       <a href="{% url 'kibi-list-post' %}">Back to List</a>
+          <div class="col-8">
+       <label for="id_{{ field.name }}">{{ field.label|title }}Comment:</label>
+        <input class="comment" name="comment-field" id="id_{{ field.name }}" required>
+    </div>
     </div>
   </div>
 {% endblock %}
